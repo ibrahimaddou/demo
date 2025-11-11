@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from '../../store/user/user.state';
-import * as UserActions from '../../store/user/user.actions';
+import { UserActions } from '../../store/user/user.actions';
 import * as UserSelectors from '../../store/user/user.selectors';
 
 @Component({
@@ -20,7 +20,7 @@ export class CompleteButtonComponent {
   }
 
   onCompleteUser(userId: number): void {
-    this.store.dispatch(UserActions.completeUser({ userId }));
+    this.store.dispatch(UserActions.completeUser({ userId, status: 'completed' }));
   }
 }
 

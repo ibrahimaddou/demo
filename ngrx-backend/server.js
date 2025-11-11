@@ -33,18 +33,27 @@ app.get('/api/users/:id', (req, res) => {
   }, 300);
 });
 
-// Complete user (update status)
+// Complete user (update status - now accepts status in body)
 app.patch('/api/users/:id/complete', (req, res) => {
   const userId = parseInt(req.params.id);
   const userIndex = users.findIndex(u => u.id === userId);
+  const requestedStatus = req.body && req.body.status ? String(req.body.status) : 'completed';
+  const allowedStatuses = ['in-progress', 'completed'];
   
   setTimeout(() => {
-    if (userIndex !== -1) {
-      users[userIndex].status = 'completed';
+    if (userIndex === -1) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    if (!allowedStatuses.includes(requestedStatus)) {
+      return res.status(400).json({ error: 'Invalid status', allowedStatuses });
+    }
+
+    try {
+      users[userIndex].status = requestedStatus;
       res.json(users[userIndex]);
-      console.log(`User ${userId} status updated to completed`);
-    } else {
-      res.status(404).json({ error: 'User not found' });
+      console.log(`User ${userId} status updated to ${requestedStatus}`);
+    } catch (e) {
+      res.status(500).json({ error: 'Failed to update status' });
     }
   }, 800); // Simulate slower network for update
 });

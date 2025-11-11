@@ -39,8 +39,8 @@ export class UserEffects {
   completeUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.completeUser),
-      switchMap(({ userId }) =>
-        this.userService.completeUser(userId).pipe(
+      switchMap(({ userId, status }) =>
+        this.userService.completeUser(userId, status).pipe(
           map(user => UserActions.completeUserSuccess({ user })),
           catchError(error => of(UserActions.completeUserFailure({ 
             error: error.message 

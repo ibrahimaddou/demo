@@ -19,8 +19,8 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
 
-  completeUser(id: number): Observable<User> {
-    return this.http.patch<User>(`${this.apiUrl}/${id}/complete`, {});
+  completeUser(id: number, status: User['status']): Observable<User> {
+    return this.http.patch<User>(`${this.apiUrl}/${id}/complete`, { status });
   }
 }
 
