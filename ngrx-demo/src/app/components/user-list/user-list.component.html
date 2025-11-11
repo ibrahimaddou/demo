@@ -1,0 +1,37 @@
+<div class="user-list-container">
+  <h2>User List</h2>
+  
+  <div *ngIf="loading$ | async" class="loading">
+    Loading users...
+  </div>
+
+  <div class="user-list">
+    <div 
+      *ngFor="let user of users$ | async" 
+      class="user-item"
+      [class.selected]="(selectedUser$ | async)?.id === user.id"
+      [class.completed]="user.status === 'completed'"
+      (click)="onSelectUser(user.id)">
+      
+      <div class="user-info">
+        <h3>{{ user.name }}</h3>
+        <p>{{ user.email }}</p>
+        <span class="status-badge" [class.completed]="user.status === 'completed'">
+          {{ user.status }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="selected-user-details" *ngIf="selectedUser$ | async as selectedUser">
+    <h3>Selected User Details</h3>
+    <div class="details-card">
+      <p><strong>ID:</strong> {{ selectedUser.id }}</p>
+      <p><strong>Name:</strong> {{ selectedUser.name }}</p>
+      <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+      <p><strong>Status:</strong> {{ selectedUser.status }}</p>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,56 @@
+
+.complete-button-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.complete-button-container h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.complete-button-container p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.complete-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.complete-btn:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.complete-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.loading-indicator {
+  margin-top: 10px;
+  color: #4CAF50;
+  font-style: italic;
+}
+
+.info-message {
+  color: #999;
+  font-style: italic;
+}
+
+

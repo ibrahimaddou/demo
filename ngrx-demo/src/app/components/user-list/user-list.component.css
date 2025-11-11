@@ -1,0 +1,99 @@
+
+.user-list-container {
+  padding: 20px;
+}
+
+.user-list-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.user-item {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.user-item:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.user-item.selected {
+  border-color: #4CAF50;
+  background-color: #f0f8f0;
+}
+
+.user-item.completed {
+  background-color: #e8f5e9;
+}
+
+.user-info h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.user-info p {
+  margin: 0 0 10px 0;
+  color: #666;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #ff9800;
+  color: white;
+}
+
+.status-badge.completed {
+  background-color: #4CAF50;
+}
+
+.selected-user-details {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.selected-user-details h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.details-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.details-card p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.details-card strong {
+  color: #333;
+}
+
+
