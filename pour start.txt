@@ -1,0 +1,4 @@
+ cd "ngrx-demo" && npm start
+
+
+cd "ngrx-backend" && npm start

@@ -1,7 +1,7 @@
 <div class="complete-button-container">
   <h3>Complete User Task</h3>
   
-  <div *ngIf="selectedUser$ | async as selectedUser; else noUserSelected">
+  <div *ngIf="selectedUser; else noUserSelected">
     <p>Complete task for: <strong>{{ selectedUser.name }}</strong></p>
     
     <button 
